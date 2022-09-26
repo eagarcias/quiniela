@@ -1,0 +1,50 @@
+rails new --skip-git	Skip git init, .gitignore, and .gitattributes
+rails new --skip-keeps	Skip source control .keep files
+rails new --skip-action-mailer	Skip Action Mailer files
+rails new --skip-action-mailbox	Skip Action Mailbox gem
+rails new --skip-action-text	Skip Action Text gem
+rails new --skip-active-record	Skip Active Record files
+rails new --skip-active-job	Skip Active Job
+rails new --skip-active-storage	Skip Active Storage files
+rails new --skip-action-cable   Skip Action Cable files
+rails new --skip-asset-pipeline	Skip Asset Pipeline
+rails new --skip-javascript	Skip JavaScript files
+rails new --skip-hotwire	Skip Hotwire integration
+rails new --skip-jbuilder	Skip jbuilder gem
+rails new --skip-test	Skip test files
+rails new --skip-system-test	Skip system test files
+rails new --skip-bootsnap	Skip bootsnap gem
+rails --help   Get a list of rails commands available to you
+bin/rails notes   Searches through your code for comments beginning with a specific keyword.
+bin/rails notes --annotations FIXME RELEASE   You can pass specific annotations by using the --annotations argument. Note that annotations are case sensitive.
+bin/rails dbconsole figures out which database   you're using and drops you into whichever command line interface you would use with it.
+bundle update   Update your gems to the latest available versions
+bundle config get <name>   Will print the value of that configuration setting, and where it was set.
+bundle add   Add gem to the Gemfile and run bundle install
+bundle check   Verifies if dependencies are satisfied by installed gems
+bundle clean   Cleans up unused gems in your bundler directory
+bundle doctor   Checks the bundle for common problems
+bundle cache   Package your needed .gem files into your application.
+bundle show   Shows all the gems in your bundle, or the path to a gem.
+bundle lock   Creates / Updates a lockfile without installing
+bundle platform   Displays platform compatibility information
+rvm use   Setup current shell to use a specific ruby version
+rvm reset   Remove default and current settings, exit the shell
+rvm info   Show information for current ruby
+rvm list   Show currently installed versions
+rvm reload   Reload RVM source itself (useful after changing RVM source)
+rvm implode   Removes all ruby installations it manages, everything in ~/.rvm
+rvm install   Install one or many ruby versions
+rvm uninstall   Uninstall one or many ruby versions, leaves their sources
+rvm remove   Uninstall one or many ruby versions and remove their sources
+rvm upgrade   Install new ruby, copy gemsets, make gems pristine, remove old ruby
+gem build GEMSPEC_FILE [options]   Build a gem from a gemspec
+gem cert [options]   Manage RubyGems certificates and signing settings
+gem check [OPTIONS] [GEMNAME ...] [options]   Check a gem repository for added or missing files
+gem cleanup [GEMNAME ...] [options]   Clean up old versions of installed gems
+gem dependency   Show the dependencies of an installed gem
+gem fetch GEMNAME [GEMNAME ...] [options]   Download a gem and place it in the current directory
+gem info GEMNAME [options]   Show information for the given gem
+gem install   Install a gem into the local repository
+gem list [REGEXP ...] [options]   Display local gems whose name matches REGEXP
+gem outdated [options]   Display all gems that need updates
