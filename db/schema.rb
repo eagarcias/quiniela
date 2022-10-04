@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_27_124725) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_30_030639) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,10 +18,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_27_124725) do
     t.bigint "first_team_id"
     t.bigint "second_team_id"
     t.datetime "date"
-    t.string "state"
+    t.string "status"
     t.bigint "winner_team_id"
-    t.bigint "first_team_goals"
-    t.bigint "second_team_goals"
+    t.integer "first_team_goals", default: 0
+    t.integer "second_team_goals", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,8 +29,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_27_124725) do
   create_table "predictions", force: :cascade do |t|
     t.bigint "winner_team_id"
     t.bigint "loser_team_id"
-    t.bigint "winner_team_goals"
-    t.bigint "loser_team_goals"
+    t.integer "winner_team_goals"
+    t.integer "loser_team_goals"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "match_id"
@@ -54,12 +54,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_27_124725) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "points"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "matches", "teams", column: "first_team_id"
   add_foreign_key "matches", "teams", column: "second_team_id"
+  add_foreign_key "matches", "teams", column: "winner_team_id"
   add_foreign_key "predictions", "matches"
   add_foreign_key "predictions", "teams", column: "loser_team_id"
   add_foreign_key "predictions", "teams", column: "winner_team_id"
