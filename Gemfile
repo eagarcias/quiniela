@@ -72,5 +72,4 @@ group :test do
 end
 
 gem "eagarcias-calculator", "~> 0.1.1"
-
-gem "devise", "~> 4.8"
+gem 'devise'
