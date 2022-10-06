@@ -1,14 +1,38 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Teams</h1>
+<h1>Equipos</h1>
 
-<div id="teams">
-  <% @teams.each do |team| %>
-    <%= render team %>
-    <p>
-      <%= link_to "Show this team", team %>
-    </p>
-  <% end %>
-</div>
+<table class="centered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Escudo</th>
+      <th>Jugadores</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<%= link_to "New team", new_team_path %>
+  <tbody>
+    <% @teams.each do |team| %>
+      <tr>
+        <td><%= team.name %></td>
+        <% if team.logo.attached? %> 
+        <td><%= image_tag team.logo.attachment %></td>
+        <%else%> 
+        <td></td>
+        <% end %>
+        <% if team.players.attached? %> 
+        <td><%= image_tag team.players.attachment %></td> 
+        <%else%> 
+        <td></td>
+        <% end %>
+        <td><%= link_to "Editar equipo", edit_team_path(team) %></td>
+        <td><%= button_to "Eliminar este equipo", team, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "Crear equipo", new_team_path %>

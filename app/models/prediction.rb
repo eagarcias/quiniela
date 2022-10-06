@@ -8,8 +8,12 @@ class Prediction < ApplicationRecord
     def points 
         if (first_team_goals == match.first_team_goals && second_team_goals == match.second_team_goals)
             3
-        elsif (first_team_goals == match.first_team_goals || second_team_goals == match.second_team_goals)
+        elsif (match.first_team_goals > match.second_team_goals && first_team_goals > second_team_goals)
             2
+        elsif (match.second_team_goals > match.first_team_goals && second_team_goals > match.second_team_goals)
+            2         
+        elsif (match.second_team_goals == match.first_team_goals && second_team_goals == first_team_goals)
+            1  
         else
             0    
         end
