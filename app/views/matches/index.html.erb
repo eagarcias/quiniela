@@ -1,14 +1,43 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Matches</h1>
+<h1>Partidos</h1>
 
-<div id="matches">
-  <% @matches.each do |match| %>
-    <%= render match %>
-    <p>
-      <%= link_to "Show this match", match %>
-    </p>
-  <% end %>
-</div>
+<table class="centered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Primer Equipo</th>
+      <th>Segundo Equipo</th>
+      <th>Goles del prime equipo</th>
+      <th>Goles del segundo equipo</th>
+      <th>Fecha</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<%= link_to "New match", new_match_path %>
+  <tbody>
+    <% @matches.each do |match| %>
+      <tr>
+        <td><%= match.id %></td>
+        <td><%= match.first_team.name %></td>
+        <td><%= match.second_team.name%></td>
+        <td><%= match.first_team_goals%></td>
+        <td><%= match.second_team_goals%></td>
+        <td><%= match.date.to_date.to_formatted_s(:iso8601) %></td>
+        <td><%= link_to "Editar partido", edit_match_path(match) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "Crear partido", new_match_path %>
+<br>
+<br>
+
+<%= button_to(
+  "Log Out",
+  destroy_user_session_path,
+  method: :delete
+) %>

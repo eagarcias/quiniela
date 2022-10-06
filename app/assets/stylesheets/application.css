@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+.centered table,
+td {
+  text-align: center;
+  padding: 0 60px;
+  border: 1px solid #eee
+}

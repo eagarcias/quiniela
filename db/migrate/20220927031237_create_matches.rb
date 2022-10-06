@@ -3,6 +3,7 @@ class CreateMatches < ActiveRecord::Migration[7.0]
     create_table :matches do |t|
       t.bigint :first_team_id
       t.bigint :second_team_id
+      
       t.datetime :date
       t.string :status
       t.bigint :winner_team_id

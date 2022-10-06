@@ -1,16 +1,22 @@
-class Match < ApplicationRecord
-    validates :first_team_id, presence: true
-    validates :second_team_id, presence: true
+class Match < ApplicationRecord    
     validates :date, presence: true
     enum status: {
         initiated: :initiated,
         finished: :finished,
     }
-    has_one :first_team_id, class_name: "Team", foreign_key: "first_team_id"
-    has_one :second_team_id, class_name: "Team", foreign_key: "second_team_id"
-    has_one :winner_team_id, class_name: "Team", foreign_key: "winner_team_id"
 
-    def winner_team_id
-        if (first_team_goals)
+    belongs_to :first_team, class_name: "Team", foreign_key: "first_team_id"
+    belongs_to :second_team, class_name: "Team", foreign_key: "second_team_id"
+
+    has_many :predictions
+    
+    def winner_team
+        if (first_team_goals > second_team_goals)
+            "El ganador es: #{first_team.name}"
+        elsif (second_team_goals > first_team_goals)
+            "El ganador es: #{second_team.name}" 
+        else
+            "Empates"
+        end
     end
 end
