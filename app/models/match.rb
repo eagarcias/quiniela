@@ -4,11 +4,19 @@ class Match < ApplicationRecord
         initiated: :initiated,
         finished: :finished,
     }
-
     belongs_to :first_team, class_name: "Team", foreign_key: "first_team_id"
     belongs_to :second_team, class_name: "Team", foreign_key: "second_team_id"
-
     has_many :predictions
+    before_create :set_defaults
+
+    def set_defaults
+        unless(first_team_goals)
+            first_team_goals = 0
+        end
+        unless(second_team_goals)
+            second_team_goals = 0
+        end
+    end
     
     def winner_team
         if (first_team_goals > second_team_goals)

@@ -1,0 +1,11 @@
+<header>
+    <div >
+        <ul>
+            <li><%= link_to "Partidos", matches_path %></li>
+            <li><%= link_to "Equipos", teams_path %></li>
+            <li><%= link_to "Predicciones", predictions_path %></li>
+            <li><%= link_to "Usuarios", users_path %></li>
+            <li style="float:right"><%= button_to("Cerrar sesión", destroy_user_session_path, method: :delete) %></li>
+        </ul>
+    </div>
+</header>
