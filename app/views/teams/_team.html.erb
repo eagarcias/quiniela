@@ -1,2 +1,9 @@
 <div id="<%= dom_id team %>">
+<h1> <%= team.name %> </h1>
+<% if team.logo.attached? %> 
+<%= image_tag team.logo.attachment %> 
+<% end %>
+<% if team.players.attached? %> 
+<%= image_tag team.players.attachment %> 
+<% end %>
 </div>
