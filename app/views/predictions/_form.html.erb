@@ -11,6 +11,28 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%=  'Partido: ' %>
+    <%= select(:prediction, :match_id, Match.all.collect {|match| [ "#{match.first_team.name} vs #{match.second_team.name}", match.id ] }, { include_blank: false })  %>
+  </div>
+
+  <br>
+  
+  <div class="field">
+    <%= form.label "Goles del primer equipo" %><br>
+    <%= form.number_field :first_team_goals %>
+  </div>
+
+  <br>
+
+  <div class="field">
+    <%= form.label "Goles del segundo equipo" %><br>
+    <%= form.number_field :second_team_goals %>
+  </div>
+
+  <br>
+  <br>
+
   <div>
     <%= form.submit %>
   </div>

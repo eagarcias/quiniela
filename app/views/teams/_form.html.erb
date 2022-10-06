@@ -11,6 +11,15 @@
     </div>
   <% end %>
 
+  <%= form.label "Nombre"%>
+  <%= form.text_field :name%>
+
+  <%= form.label "Escudo del equipo"%>
+  <%= form.file_field :team_logo%>
+
+  <%= form.label "Foto de jugadores"%>
+  <%= form.file_field :team_players%>
+
   <div>
     <%= form.submit %>
   </div>

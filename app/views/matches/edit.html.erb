@@ -1,11 +1,5 @@
 <h1>Editar partido <%=@match.first_team.name%> vs <%=@match.second_team.name%></h1>
 
-<% flash.each do |type, msg| %>
-  <div>
-    <%= msg %>
-  </div>
-<% end %>
-
 <%= render "form", match: @match %>
 
 <br>

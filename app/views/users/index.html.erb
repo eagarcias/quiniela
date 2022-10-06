@@ -1,14 +1,26 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Users</h1>
+<h1>Usuarios</h1>
 
-<div id="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
-  <% end %>
-</div>
+<table class="centered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Email</th>
+      <th>Puntos</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<%= link_to "New user", new_user_path %>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.email %></td>
+        <td><%= user.points ? user.points : 0%></td>
+        <td><%= button_to( "Enviar puntos", "/users/#{user.id}/send_points_email" , method: :post) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

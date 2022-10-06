@@ -1,11 +1,22 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :predictions
+
+  authenticated :user do
+    resources :predictions
+  end
+
+
+
   resources :teams
   resources :matches
-  resources :users
-  # devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  resources :users do
+      member do
+        post :send_points_email
+      end
+  end
 
   root "matches#index"
+  # devise_for :users
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 end

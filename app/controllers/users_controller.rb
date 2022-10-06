@@ -3,11 +3,17 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
+    CalculatePointsJob.perform_now()
     @users = User.all
   end
 
   # GET /users/1 or /users/1.json
   def show
+  end
+
+  def send_points_email
+    user = User.find(params[:id])
+    PointsMailer.with(points: user.points, email: user.email).points_email.deliver_now
   end
 
   # GET /users/new

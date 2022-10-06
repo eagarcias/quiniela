@@ -1,14 +1,27 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Predictions</h1>
+<h1>Predicciones de <%=current_user ? current_user.email : ''%></h1>
 
-<div id="predictions">
-  <% @predictions.each do |prediction| %>
-    <%= render prediction %>
-    <p>
-      <%= link_to "Show this prediction", prediction %>
-    </p>
-  <% end %>
-</div>
+<table class="centered">
+  <thead>
+    <tr>
+      <th>Partido</th>
+      <th>Goles del prime equipo</th>
+      <th>Goles del segundo equipo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @predictions.each do |prediction| %>
+      <tr>
+        <td><%= prediction.match.first_team.name %> vs <%= prediction.match.second_team.name %></td>
+        <td><%= prediction.first_team_goals %></td>
+        <td><%= prediction.second_team_goals%></td>
+        <td><%= link_to "Editar predicciôn", edit_prediction_path(prediction) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to "New prediction", new_prediction_path %>

@@ -73,3 +73,4 @@ end
 
 gem "eagarcias-calculator", "~> 0.1.1"
 gem 'devise'
+gem "letter_opener", group: :development
