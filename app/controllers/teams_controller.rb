@@ -67,8 +67,8 @@ class TeamsController < ApplicationController
     def team_params
       params.fetch(:team, {}).permit(
         :name,
-        :team_logo,
-        :team_players
+        :logo,
+        :players
         )
     end
 end
