@@ -27,6 +27,7 @@
         <td></td>
         <% end %>
         <td><%= link_to "Editar equipo", edit_team_path(team) %></td>
+        <td><%= button_to "Eliminar este equipo", team, method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +35,4 @@
 
 <br>
 
-<%= link_to "New team", new_team_path %>
+<%= link_to "Crear equipo", new_team_path %>
