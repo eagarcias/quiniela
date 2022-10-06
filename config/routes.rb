@@ -3,9 +3,12 @@ Rails.application.routes.draw do
 
   authenticated :user do
     resources :predictions
+    root to: redirect("/matches"), as: :home
   end
 
-
+  unauthenticated :user do
+    root to: redirect("/users/sign_in"), as: :login
+  end
 
   resources :teams
   resources :matches
