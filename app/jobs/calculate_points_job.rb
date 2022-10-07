@@ -2,7 +2,6 @@ class CalculatePointsJob < ApplicationJob
   queue_as :default
 
   def perform(*args)
-    puts "holaaaa"
     users = User.all
     users.each do |user|
       points = 0
