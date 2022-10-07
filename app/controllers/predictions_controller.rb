@@ -25,7 +25,7 @@ class PredictionsController < ApplicationController
     @prediction.user = current_user
     respond_to do |format|
       if @prediction.save
-        format.html { redirect_to predictions_urls, notice: "Prediction was successfully created." }
+        format.html { redirect_to predictions_url, notice: "Prediction was successfully created." }
         format.json { render :show, status: :created, location: @prediction }
       else
         format.html { render :new, status: :unprocessable_entity }
