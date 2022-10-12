@@ -3,7 +3,9 @@ class MatchesController < ApplicationController
     
     # GET /matches or /matches.json
     def index
-        @matches = Match.all
+        #@matches = Match.all
+        sql_query = "SELECT matches.* FROM matches"
+        @matches = Match.find_by_sql(sql_query)
     end
     
     # GET /matches/1 or /matches/1.json

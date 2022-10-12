@@ -3,7 +3,9 @@ class PredictionsController < ApplicationController
 
   # GET /predictions or /predictions.json
   def index
-    @predictions = Prediction.where(user: current_user)
+    #@predictions = Prediction.where(user: current_user)
+    sql_query = "SELECT predictions.* FROM predictions WHERE predictions.user_id = #{current_user.id}"
+    @predictions = Prediction.find_by_sql(sql_query)
   end
 
   # GET /predictions/1 or /predictions/1.json
