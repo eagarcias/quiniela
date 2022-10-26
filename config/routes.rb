@@ -18,6 +18,16 @@ Rails.application.routes.draw do
       end
   end
 
+  namespace :api do
+    namespace :v1 do
+      resources :matches do
+        collection do
+          get 'test'
+        end
+      end
+    end
+  end
+
   root "matches#index"
   # devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
