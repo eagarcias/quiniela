@@ -1,6 +1,6 @@
 require_relative "./application_api_controller"
 class Api::V1::MatchesController < ApplicationApiController
-    before_action :set_match, only: %i[ show edit update destroy ]
+    before_action :authentication
 
     # GET /matches/test
     def test
